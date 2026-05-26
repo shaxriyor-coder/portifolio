@@ -167,6 +167,12 @@ function persist() {
   saveDbFile({ storage, idCounters })
 }
 
+export function initializeDatabase() {
+  // File-backed storage is initialized lazily on first access.
+  // This function exists for compatibility with legacy seed scripts.
+  return true
+}
+
 export const db = {
   profile: {
     get(): Profile | null {

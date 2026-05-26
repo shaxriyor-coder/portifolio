@@ -2,6 +2,8 @@ import { db } from '@/lib/db';
 import { validateData, apiResponse, apiError } from '@/lib/api-utils';
 import { profileSchema } from '@/lib/validation-schemas';
 
+export const dynamic = 'force-static';
+
 export async function GET() {
   try {
     const profile = db.profile.get();

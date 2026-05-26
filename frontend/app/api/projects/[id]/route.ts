@@ -2,6 +2,12 @@ import { db } from '@/lib/db';
 import { validateData, apiResponse, apiError } from '@/lib/api-utils';
 import { projectSchema, type Project } from '@/lib/validation-schemas';
 
+export const dynamic = 'force-static';
+
+export async function generateStaticParams() {
+  return db.projects.all().map((project) => ({ id: String(project.id) }));
+}
+
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }

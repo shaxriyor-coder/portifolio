@@ -2,6 +2,8 @@ import { db } from '@/lib/db';
 import { validateData, apiResponse, apiError } from '@/lib/api-utils';
 import { projectSchema, type Project } from '@/lib/validation-schemas';
 
+export const dynamic = 'force-static';
+
 export async function GET() {
   try {
     const projects = db.projects.all();

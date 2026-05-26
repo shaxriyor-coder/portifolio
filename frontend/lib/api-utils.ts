@@ -1,9 +1,22 @@
-import { ZodError, ZodSchema } from 'zod';
+import { z, ZodError, ZodSchema } from 'zod';
 
-export function validateData<T>(schema: ZodSchema, data: unknown): { success: true; data: T } | { success: false; errors: Record<string, string> } {
+export function validateData<TSchema extends ZodSchema>(
+  schema: TSchema,
+  data: unknown,
+): { success: true; data: z.infer<TSchema> } | { success: false; errors: Record<string, string> };
+
+export function validateData<TData>(
+  schema: ZodSchema,
+  data: unknown,
+): { success: true; data: TData } | { success: false; errors: Record<string, string> };
+
+export function validateData<TData = unknown, TSchema extends ZodSchema = ZodSchema>(
+  schema: TSchema,
+  data: unknown,
+): { success: true; data: TData } | { success: false; errors: Record<string, string> } {
   try {
     const validated = schema.parse(data);
-    return { success: true, data: validated as T };
+    return { success: true, data: validated as TData };
   } catch (error) {
     if (error instanceof ZodError) {
       const errors: Record<string, string> = {};

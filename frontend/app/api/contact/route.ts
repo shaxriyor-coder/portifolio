@@ -2,6 +2,8 @@ import { db } from '@/lib/db';
 import { validateData, apiResponse, apiError } from '@/lib/api-utils';
 import { contactSchema } from '@/lib/validation-schemas';
 
+export const dynamic = 'force-static';
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();

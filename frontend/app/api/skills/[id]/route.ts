@@ -1,5 +1,7 @@
 const BACKEND_API_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, '') || 'http://localhost:8000';
 
+export const dynamic = 'force-dynamic';
+
 export async function PUT(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
