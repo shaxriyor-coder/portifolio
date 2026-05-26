@@ -21,31 +21,29 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-lg border-b border-border z-50">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
+        <Link href="/" className="text-lg font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent sm:text-xl">
           Portfolio
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-
-
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 rounded-lg hover:bg-card transition-colors"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-lg transition-colors hover:bg-card md:hidden"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
           {mounted && isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -54,13 +52,13 @@ export function Navigation() {
 
       {/* Mobile Navigation */}
       {mounted && isOpen && (
-        <div className="md:hidden border-t border-border bg-background">
-          <div className="px-6 py-4 space-y-4">
+        <div className="border-t border-border bg-background md:hidden">
+          <div className="space-y-4 px-4 py-4 sm:px-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="block text-muted-foreground hover:text-foreground transition-colors"
+                className="block text-muted-foreground transition-colors hover:text-foreground"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

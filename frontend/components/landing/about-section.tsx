@@ -40,7 +40,7 @@ export function AboutSection() {
 
   if (loading) {
     return (
-      <section id="about" className="py-20 px-6 max-w-6xl mx-auto">
+      <section id="about" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <div className="text-center text-muted-foreground">Loading...</div>
       </section>
     )
@@ -51,8 +51,8 @@ export function AboutSection() {
     : []
 
   return (
-    <section id="about" className="py-20 px-6 max-w-6xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-12 items-start">
+    <section id="about" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <div className="grid items-start gap-10 md:grid-cols-2 md:gap-12">
         {/* Left side - Content */}
         <div className="animate-slide-up space-y-8">
           <div>

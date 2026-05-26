@@ -39,30 +39,30 @@ export function SkillsSection() {
   }, {} as Record<string, Skill[]>)
 
   return (
-    <section id="skills" className="py-20 px-6 bg-card/30 border-y border-border">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center animate-slide-up">Ko'nikmalar va Texnologiyalar</h2>
+    <section id="skills" className="border-y border-border bg-card/30 px-4 py-16 sm:px-6 sm:py-20">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="mb-10 text-center text-[clamp(2rem,4vw,2.5rem)] font-bold animate-slide-up sm:mb-12">Ko'nikmalar va Texnologiyalar</h2>
 
         {loading ? (
           <div className="text-center text-muted-foreground">Ko'nikmalar yuklanmoqda...</div>
         ) : Object.keys(groupedSkills).length === 0 ? (
           <div className="text-center text-muted-foreground">Hali ko'nikma qo'shilmagan</div>
         ) : (
-          <div className="space-y-12">
+          <div className="space-y-10 sm:space-y-12">
             {Object.entries(groupedSkills).map(([category, categorySkills]) => (
               <div key={category}>
-                <h3 className="text-2xl font-semibold mb-6 text-primary capitalize">{category}</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <h3 className="mb-4 text-xl font-semibold text-primary capitalize sm:mb-6 sm:text-2xl">{category}</h3>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                   {categorySkills.map((skill, index) => (
                     <div
                       key={skill.id}
-                      className="p-4 rounded-lg bg-background border border-border hover:border-primary hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 hover:scale-105 group"
+                      className="rounded-lg border border-border bg-background p-4 transition-all duration-300 hover:scale-[1.01] hover:border-primary hover:shadow-lg hover:shadow-purple-500/20 group"
                       style={{
                         animation: `slideUp 0.6s ease-out ${index * 0.05}s both`,
                       }}
                     >
-                      <p className="font-semibold group-hover:text-primary transition-colors">{skill.name}</p>
-                      <p className="text-xs text-muted-foreground mt-1 capitalize">{skill.level}</p>
+                      <p className="font-semibold transition-colors group-hover:text-primary">{skill.name}</p>
+                      <p className="mt-1 text-xs capitalize text-muted-foreground">{skill.level}</p>
                     </div>
                   ))}
                 </div>

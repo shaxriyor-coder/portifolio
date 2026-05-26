@@ -38,19 +38,19 @@ export function ProjectsSection() {
   }, [])
 
   return (
-    <section id="projects" className="py-20 px-6 max-w-6xl mx-auto">
-      <h2 className="text-4xl font-bold mb-12 text-center animate-slide-up">Tanlangan Loyihalar</h2>
+    <section id="projects" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <h2 className="mb-10 text-center text-[clamp(2rem,4vw,2.5rem)] font-bold animate-slide-up sm:mb-12">Tanlangan Loyihalar</h2>
 
       {loading ? (
         <div className="text-center text-muted-foreground">Loyihalar yuklanmoqda...</div>
       ) : projects.length === 0 ? (
-        <div className="text-center text-muted-foreground py-12">Hali loyiha qo'shilmagan</div>
+        <div className="py-12 text-center text-muted-foreground">Hali loyiha qo'shilmagan</div>
       ) : (
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className="rounded-lg overflow-hidden bg-card border border-border hover:border-primary hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 group"
+              className="group overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-purple-500/20"
               style={{
                 animation: `slideUp 0.6s ease-out ${index * 0.1}s both`,
               }}
@@ -107,13 +107,13 @@ export function ProjectsSection() {
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-3">
                   {project.live_url && (
                     <a
                       href={project.live_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-primary hover:text-primary-foreground hover:bg-primary px-3 py-2 rounded-lg transition-all"
+                      className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-primary transition-all hover:bg-primary hover:text-primary-foreground"
                     >
                       <ExternalLink size={16} />
                       Jonli
@@ -124,7 +124,7 @@ export function ProjectsSection() {
                       href={project.github_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-primary hover:text-primary-foreground hover:bg-primary px-3 py-2 rounded-lg transition-all"
+                      className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-primary transition-all hover:bg-primary hover:text-primary-foreground"
                     >
                       <Github size={16} />
                       Kod
@@ -132,7 +132,7 @@ export function ProjectsSection() {
                   )}
                   <Link
                     href={`/project/${project.id}`}
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground px-3 py-2 rounded-lg transition-all"
+                    className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-foreground"
                   >
                     Batafsil →
                   </Link>

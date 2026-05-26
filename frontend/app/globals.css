@@ -119,8 +119,22 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden antialiased;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  a,
+  button {
+    @apply touch-manipulation;
   }
 }
 
