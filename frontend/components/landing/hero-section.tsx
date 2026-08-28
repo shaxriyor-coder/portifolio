@@ -38,17 +38,17 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto max-w-4xl text-center animate-fade-in">
         {/* Welcome text */}
         <p className="mb-4 text-base text-transparent bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text sm:text-lg">
-          Mening portifoliomga xush kelibsiz
+          Welcome to my portfolio
         </p>
 
         {/* Main heading */}
         <h1 className="mb-6 text-[clamp(2rem,6vw,4.8rem)] font-bold leading-tight">
-          {profile?.name || 'Tam Stack Dasturchi'}
+          {profile?.name || 'Full Stack Developer'}
         </h1>
 
         {/* Subtitle */}
         <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-xl">
-          {profile?.title || 'Zamonaviy texnologiyalar bilan elegant yechimlar yaratish'} • {profile?.bio || 'Chiroyli va foydali veb tajribalarni yaratishga ishtiyoq'}
+          {profile?.title || 'Building elegant solutions with modern technology'} • {profile?.bio || 'Passionate about crafting beautiful, functional web experiences'}
         </p>
 
         {/* CTA Buttons */}
@@ -57,14 +57,14 @@ export function HeroSection() {
             href="#projects"
             className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/50"
           >
-            Mening ishlarini ko'ring
+            View my work
             <ArrowRight size={20} />
           </a>
           <a
             href="#contact"
             className="inline-flex items-center justify-center rounded-lg border border-border px-6 py-3 font-semibold transition-colors duration-200 hover:bg-card"
           >
-            Menga murojaat qiling
+            Get in touch
           </a>
         </div>
 

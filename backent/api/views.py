@@ -117,33 +117,33 @@ def login(request):
     
     if not email or not password:
         return Response(
-            {'error': 'Email va parol talab qilinadi'},
+            {'error': 'Email and password are required'},
             status=status.HTTP_400_BAD_REQUEST
         )
-    
+
     try:
         user = User.objects.get(email=email)
     except User.DoesNotExist:
         return Response(
-            {'error': 'Email yoki parol noto\'g\'ri'},
+            {'error': 'Invalid email or password'},
             status=status.HTTP_401_UNAUTHORIZED
         )
-    
+
     if not user.check_password(password):
         return Response(
-            {'error': 'Email yoki parol noto\'g\'ri'},
+            {'error': 'Invalid email or password'},
             status=status.HTTP_401_UNAUTHORIZED
         )
-    
+
     if not user.is_staff or not user.is_superuser:
         return Response(
-            {'error': 'Admin huquqlari kerak'},
+            {'error': 'Admin privileges required'},
             status=status.HTTP_403_FORBIDDEN
         )
-    
+
     return Response({
         'success': True,
-        'message': 'Muvaffaqiyat bilan kirish',
+        'message': 'Successfully logged in',
         'user': {
             'id': user.id,
             'email': user.email,

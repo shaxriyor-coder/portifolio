@@ -78,23 +78,23 @@ export default function ProfileAdmin() {
   }
 
   if (loading) {
-    return <div className="text-center text-muted-foreground">Yuklanmoqda...</div>
+    return <div className="text-center text-muted-foreground">Loading...</div>
   }
 
   return (
     <div>
-      <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">Profil Sozlamalari</h1>
+      <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">Profile Settings</h1>
 
       <form onSubmit={handleSubmit} className="max-w-2xl">
         <div className="bg-card border border-border rounded-lg p-4 sm:p-8 space-y-6">
           {/* Name */}
           <div>
-            <label className="block text-sm font-medium mb-2">Ism Familiya *</label>
+            <label className="block text-sm font-medium mb-2">Full Name *</label>
             <input
               type="text"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              placeholder="Sizning ismingiz"
+              placeholder="Your name"
               className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               required
             />
@@ -102,12 +102,12 @@ export default function ProfileAdmin() {
 
           {/* Title */}
           <div>
-            <label className="block text-sm font-medium mb-2">Kasbiy Lavozim *</label>
+            <label className="block text-sm font-medium mb-2">Professional Title *</label>
             <input
               type="text"
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              placeholder="Masalan: Yuqori Darajali Tam Stack Dasturchi"
+              placeholder="e.g. Senior Full Stack Developer"
               className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               required
             />
@@ -120,7 +120,7 @@ export default function ProfileAdmin() {
               type="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              placeholder="sizning@email.com"
+              placeholder="you@email.com"
               className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               required
             />
@@ -129,7 +129,7 @@ export default function ProfileAdmin() {
           {/* Contact Information */}
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium mb-2">Telefon</label>
+              <label className="block text-sm font-medium mb-2">Phone</label>
               <input
                 type="tel"
                 value={formData.phone}
@@ -145,7 +145,7 @@ export default function ProfileAdmin() {
                 type="text"
                 value={formData.telegram}
                 onChange={(e) => setFormData({ ...formData, telegram: e.target.value })}
-                placeholder="username (@ belgisisiz)"
+                placeholder="username (without @)"
                 className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               />
             </div>
@@ -153,7 +153,7 @@ export default function ProfileAdmin() {
 
           {/* GitHub */}
           <div>
-            <label className="block text-sm font-medium mb-2">GitHub Profil URL</label>
+            <label className="block text-sm font-medium mb-2">GitHub Profile URL</label>
             <input
               type="url"
               value={formData.github}
@@ -169,7 +169,7 @@ export default function ProfileAdmin() {
             disabled={saving}
             className="w-full px-6 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {saving ? 'Saqlanmoqda...' : 'O\'zgarishlarni Saqla'}
+            {saving ? 'Saving...' : 'Save Changes'}
           </button>
         </div>
       </form>

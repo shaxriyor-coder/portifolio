@@ -41,12 +41,12 @@ export function SkillsSection() {
   return (
     <section id="skills" className="border-y border-border bg-card/30 px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-10 text-center text-3xl font-bold animate-slide-up sm:mb-12 sm:text-4xl">Ko'nikmalar va Texnologiyalar</h2>
+        <h2 className="mb-10 text-center text-3xl font-bold animate-slide-up sm:mb-12 sm:text-4xl">Skills &amp; Technologies</h2>
 
         {loading ? (
-          <div className="text-center text-muted-foreground">Ko'nikmalar yuklanmoqda...</div>
+          <div className="text-center text-muted-foreground">Loading skills...</div>
         ) : Object.keys(groupedSkills).length === 0 ? (
-          <div className="text-center text-muted-foreground">Hali ko'nikma qo'shilmagan</div>
+          <div className="text-center text-muted-foreground">No skills added yet</div>
         ) : (
           <div className="space-y-10 sm:space-y-12">
             {Object.entries(groupedSkills).map(([category, categorySkills]) => (

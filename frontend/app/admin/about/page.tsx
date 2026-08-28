@@ -111,22 +111,22 @@ export default function AboutAdmin() {
   }
 
   if (loading) {
-    return <div className="text-center text-muted-foreground">Yuklanmoqda...</div>
+    return <div className="text-center text-muted-foreground">Loading...</div>
   }
 
   return (
     <div>
-      <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">Men Haqimda</h1>
+      <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">About Me</h1>
 
       <form onSubmit={handleSubmit} className="max-w-4xl">
         <div className="bg-card border border-border rounded-lg p-4 sm:p-8 space-y-6">
           {/* About Content */}
           <div>
-            <label className="block text-sm font-medium mb-2">Men Haqimda Mazmuni *</label>
+            <label className="block text-sm font-medium mb-2">About Me Content *</label>
             <textarea
               value={aboutMe.content}
               onChange={(e) => setAboutMe({ ...aboutMe, content: e.target.value })}
-              placeholder="Portifoliongiz uchun batafsil Men haqimda bo'limini yozing"
+              placeholder="Write a detailed About Me section for your portfolio"
               rows={8}
               className="w-full px-4 py-4 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all resize-none"
               required
@@ -135,7 +135,7 @@ export default function AboutAdmin() {
 
           {/* Contact Information */}
           <div className="border-t border-border pt-6">
-            <h3 className="text-lg font-semibold mb-4">Aloqa Ma'lumotlari</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact Information</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-2">Email</label>
@@ -143,13 +143,13 @@ export default function AboutAdmin() {
                   type="email"
                   value={aboutMe.email || ''}
                   onChange={(e) => setAboutMe({ ...aboutMe, email: e.target.value })}
-                  placeholder="siz@email.com"
+                  placeholder="you@email.com"
                   className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Telefon Raqami</label>
+                <label className="block text-sm font-medium mb-2">Phone Number</label>
                 <input
                   type="tel"
                   value={aboutMe.phone_number || ''}
@@ -165,7 +165,7 @@ export default function AboutAdmin() {
                   type="text"
                   value={aboutMe.telegram || ''}
                   onChange={(e) => setAboutMe({ ...aboutMe, telegram: e.target.value })}
-                  placeholder="@sizningusername"
+                  placeholder="@yourusername"
                   className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                 />
               </div>
@@ -174,10 +174,10 @@ export default function AboutAdmin() {
 
           {/* Experience & Statistics */}
           <div className="border-t border-border pt-6">
-            <h3 className="text-lg font-semibold mb-4">Tajriba va Statistika</h3>
+            <h3 className="text-lg font-semibold mb-4">Experience &amp; Statistics</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-2">Yillik Tajriba (yil)</label>
+                <label className="block text-sm font-medium mb-2">Years of Experience</label>
                 <input
                   type="number"
                   min="0"
@@ -189,7 +189,7 @@ export default function AboutAdmin() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Tugallangan Loyihalar</label>
+                <label className="block text-sm font-medium mb-2">Projects Completed</label>
                 <input
                   type="number"
                   min="0"
@@ -201,7 +201,7 @@ export default function AboutAdmin() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Mijozlar Qanaqatligi (%)</label>
+                <label className="block text-sm font-medium mb-2">Client Satisfaction (%)</label>
                 <input
                   type="number"
                   min="0"
@@ -217,9 +217,9 @@ export default function AboutAdmin() {
 
           {/* Technologies */}
           <div className="border-t border-border pt-6">
-            <h3 className="text-lg font-semibold mb-4">Texnologiyalar</h3>
+            <h3 className="text-lg font-semibold mb-4">Technologies</h3>
             <div>
-              <label className="block text-sm font-medium mb-2">Texnologiyalar (vergul bilan ajratilgan)</label>
+              <label className="block text-sm font-medium mb-2">Technologies (comma-separated)</label>
               <textarea
                 value={aboutMe.technologies || ''}
                 onChange={(e) => setAboutMe({ ...aboutMe, technologies: e.target.value })}
@@ -235,7 +235,7 @@ export default function AboutAdmin() {
             disabled={saving}
             className="w-full px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {saving ? 'Saqlanmoqda...' : 'Men Haqimda Saqla'}
+            {saving ? 'Saving...' : 'Save About Me'}
           </button>
         </div>
       </form>

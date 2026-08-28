@@ -158,45 +158,45 @@ export default function ProjectsAdmin() {
           className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all"
         >
           <Plus size={20} />
-          Yangi loyiha
+          New Project
         </button>
       </div>
 
       {/* Form */}
       {showForm && (
         <form onSubmit={handleSubmit} className="bg-card border border-border rounded-lg p-6 mb-8">
-          <h2 className="text-2xl font-bold mb-6">{editingId ? 'Loyihani tahrirlash' : 'Yangi loyiha'}</h2>
+          <h2 className="text-2xl font-bold mb-6">{editingId ? 'Edit Project' : 'New Project'}</h2>
 
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium mb-2">Loyiha turi *</label>
+              <label className="block text-sm font-medium mb-2">Project type *</label>
               <select
                 value={formData.project_type}
                 onChange={(e) => setFormData({ ...formData, project_type: e.target.value as 'web' | 'bot' })}
                 className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               >
-                <option value="web">Veb loyihasi</option>
+                <option value="web">Web project</option>
                 <option value="bot">Telegram bot</option>
               </select>
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Sarlavha *</label>
+              <label className="block text-sm font-medium mb-2">Title *</label>
               <input
                 type="text"
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                placeholder="Loyiha sarlavhasi"
+                placeholder="Project title"
                 className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Tavsif *</label>
+              <label className="block text-sm font-medium mb-2">Description *</label>
               <textarea
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                placeholder="Loyiha haqida batafsil ma'lumot"
+                placeholder="Detailed information about the project"
                 rows={4}
                 className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all resize-none"
               />
@@ -204,7 +204,7 @@ export default function ProjectsAdmin() {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-2">Texnologiyalar *</label>
+                <label className="block text-sm font-medium mb-2">Tech stack *</label>
                 <input
                   type="text"
                   value={formData.tech_stack}
@@ -227,7 +227,7 @@ export default function ProjectsAdmin() {
                 </div>
               ) : (
                 <div>
-                  <label className="block text-sm font-medium mb-2">Rasm URL</label>
+                  <label className="block text-sm font-medium mb-2">Image URL</label>
                   <input
                     type="text"
                     value={formData.image_url}
@@ -252,7 +252,7 @@ export default function ProjectsAdmin() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Jonli URL</label>
+                <label className="block text-sm font-medium mb-2">Live URL</label>
                 <input
                   type="text"
                   value={formData.live_url}
@@ -269,7 +269,7 @@ export default function ProjectsAdmin() {
               type="submit"
               className="px-6 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all"
             >
-              {editingId ? 'Yangilash' : 'Yaratish'}
+              {editingId ? 'Update' : 'Create'}
             </button>
             <button
               type="button"
@@ -279,7 +279,7 @@ export default function ProjectsAdmin() {
               }}
               className="px-6 py-2 rounded-lg border border-border hover:bg-card transition-all"
             >
-              Bekor qilish
+              Cancel
             </button>
           </div>
         </form>

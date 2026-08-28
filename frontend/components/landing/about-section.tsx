@@ -56,15 +56,15 @@ export function AboutSection() {
         {/* Left side - Content */}
         <div className="animate-slide-up space-y-8">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Men haqimda</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">About Me</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {aboutMe?.content || "Zamonaviy veb texnologiyalari bo'yicha mutaxassis dasturchi."}
+              {aboutMe?.content || "A developer specializing in modern web technologies."}
             </p>
           </div>
 
           {/* Contact Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Aloqa Ma'lumotlari</h3>
+            <h3 className="text-lg font-semibold">Contact Information</h3>
             <div className="space-y-3">
               {aboutMe?.email && (
                 <div className="flex items-center gap-3">
@@ -76,7 +76,7 @@ export function AboutSection() {
               )}
               {aboutMe?.phone_number && (
                 <div className="flex items-center gap-3">
-                  <span className="text-primary font-medium">Telefon:</span>
+                  <span className="text-primary font-medium">Phone:</span>
                   <a href={`tel:${aboutMe.phone_number}`} className="text-muted-foreground hover:text-foreground transition-colors">
                     {aboutMe.phone_number}
                   </a>
@@ -101,7 +101,7 @@ export function AboutSection() {
           {/* Technologies */}
           {techArray.length > 0 && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Texnologiyalar</h3>
+              <h3 className="text-lg font-semibold">Technologies</h3>
               <div className="flex flex-wrap gap-2">
                 {techArray.map((tech) => (
                   <span
@@ -120,19 +120,19 @@ export function AboutSection() {
         <div className="grid grid-cols-2 gap-4 sm:gap-6">
           <div className="p-4 sm:p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
             <div className="text-2xl sm:text-3xl font-bold mb-2">{aboutMe?.yearly_experience || 0}+</div>
-            <p className="text-sm text-muted-foreground">Yillik Tajriba</p>
+            <p className="text-sm text-muted-foreground">Years of Experience</p>
           </div>
           <div className="p-4 sm:p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
             <div className="text-2xl sm:text-3xl font-bold mb-2">{aboutMe?.projects_completed || 0}+</div>
-            <p className="text-sm text-muted-foreground">Tugallangan Loyihalar</p>
+            <p className="text-sm text-muted-foreground">Projects Completed</p>
           </div>
           <div className="p-4 sm:p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
             <div className="text-2xl sm:text-3xl font-bold mb-2">{aboutMe?.client_satisfaction || 0}%</div>
-            <p className="text-sm text-muted-foreground">Mijozlar Qanaqatligi</p>
+            <p className="text-sm text-muted-foreground">Client Satisfaction</p>
           </div>
           <div className="p-4 sm:p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
             <div className="text-2xl sm:text-3xl font-bold mb-2">{techArray.length}+</div>
-            <p className="text-sm text-muted-foreground">Ishlatilgan Texnologiyalar</p>
+            <p className="text-sm text-muted-foreground">Technologies Used</p>
           </div>
         </div>
       </div>

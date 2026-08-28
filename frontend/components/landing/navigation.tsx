@@ -14,9 +14,9 @@ export function Navigation() {
   }, [])
 
   const navLinks = [
-    { href: '#about', label: 'Men haqimda' },
-    { href: '#skills', label: 'Ko\'nikmalar' },
-    { href: '#projects', label: 'Loyihalar' },
+    { href: '#about', label: 'About' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#projects', label: 'Projects' },
   ]
 
   return (

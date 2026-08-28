@@ -6,8 +6,8 @@ from .models import Profile, Project, Skill, ContactSubmission, AboutMe
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ['name', 'title', 'email']
     search_fields = ['name', 'email']
-    verbose_name = "Profil"
-    verbose_name_plural = "Profil"
+    verbose_name = "Profile"
+    verbose_name_plural = "Profile"
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -59,4 +59,4 @@ class AboutMeAdmin(admin.ModelAdmin):
 
     def get_short_content(self, obj):
         return obj.content[:50] + '...' if len(obj.content) > 50 else obj.content
-    get_short_content.short_description = "Mazmun"
+    get_short_content.short_description = "Content"

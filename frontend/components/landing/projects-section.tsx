@@ -39,12 +39,12 @@ export function ProjectsSection() {
 
   return (
     <section id="projects" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <h2 className="mb-10 text-center text-3xl font-bold animate-slide-up sm:mb-12 sm:text-4xl">Tanlangan Loyihalar</h2>
+      <h2 className="mb-10 text-center text-3xl font-bold animate-slide-up sm:mb-12 sm:text-4xl">Featured Projects</h2>
 
       {loading ? (
-        <div className="text-center text-muted-foreground">Loyihalar yuklanmoqda...</div>
+        <div className="text-center text-muted-foreground">Loading projects...</div>
       ) : projects.length === 0 ? (
-        <div className="py-12 text-center text-muted-foreground">Hali loyiha qo'shilmagan</div>
+        <div className="py-12 text-center text-muted-foreground">No projects added yet</div>
       ) : (
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project, index) => (
@@ -84,7 +84,7 @@ export function ProjectsSection() {
                   <div className="text-center">
                     <div className="text-4xl mb-2">💻</div>
                     <div className="text-sm font-medium text-muted-foreground">
-                      Veb loyiha
+                      Web Project
                     </div>
                   </div>
                 </div>
@@ -117,7 +117,7 @@ export function ProjectsSection() {
                       className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2.5 text-primary transition-all hover:bg-primary hover:text-primary-foreground"
                     >
                       <ExternalLink size={16} />
-                      Jonli
+                      Live
                     </a>
                   )}
                   {project.github_url && (
@@ -128,14 +128,14 @@ export function ProjectsSection() {
                       className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2.5 text-primary transition-all hover:bg-primary hover:text-primary-foreground"
                     >
                       <Github size={16} />
-                      Kod
+                      Code
                     </a>
                   )}
                   <Link
                     href={`/project/${project.id}`}
                     className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2.5 text-muted-foreground transition-all hover:text-foreground"
                   >
-                    Batafsil →
+                    Details →
                   </Link>
                 </div>
               </div>

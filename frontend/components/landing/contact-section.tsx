@@ -42,16 +42,16 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-20 px-6 bg-card/30 border-t border-border">
       <div className="max-w-2xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center animate-slide-up">Menga Murojaat Qiling</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center animate-slide-up">Get in Touch</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg">
-          Loyihangiz haqidagi fikr bormi? Keling, hamkorlik qilib birgalikda ajoyib narsa yaratamiz.
+          Have a project in mind? Let&apos;s collaborate and build something great together.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Email Input */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium mb-2">
-              Email Manzili
+              Email Address
             </label>
             <div className="relative">
               <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={20} />
@@ -61,7 +61,7 @@ export function ContactSection() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="sizning@email.com"
+                placeholder="you@email.com"
                 className="w-full pl-12 pr-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-2 focus:ring-primary/50 outline-none transition-all"
               />
             </div>
@@ -70,7 +70,7 @@ export function ContactSection() {
           {/* Message Input */}
           <div>
             <label htmlFor="message" className="block text-sm font-medium mb-2">
-              Xabar
+              Message
             </label>
             <div className="relative">
               <MessageSquare className="absolute left-4 top-4 text-muted-foreground" size={20} />
@@ -79,7 +79,7 @@ export function ContactSection() {
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Menga loyihangiz haqida ayting..."
+                placeholder="Tell me about your project..."
                 rows={5}
                 className="w-full pl-12 pr-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-2 focus:ring-primary/50 outline-none transition-all resize-none"
               />
@@ -92,7 +92,7 @@ export function ContactSection() {
             disabled={loading}
             className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'Jo\'natilmoqda...' : 'Xabar jo\'natish'}
+            {loading ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       </div>
