@@ -14,24 +14,31 @@ export default function AdminLayout({
   const router = useRouter()
   const [authenticated, setAuthenticated] = useState<boolean | null>(null)
 
+  const isLoginPage = pathname.startsWith('/admin/login')
+
   useEffect(() => {
     const auth = localStorage.getItem('admin-authenticated') === 'true'
     setAuthenticated(auth)
 
-    if (!auth && !pathname.startsWith('/admin/login')) {
+    if (!auth && !isLoginPage) {
       router.replace('/admin/login')
     }
 
-    if (auth && pathname.startsWith('/admin/login')) {
-            router.replace('/admin')
+    if (auth && isLoginPage) {
+      router.replace('/admin')
     }
-  }, [pathname, router])
+  }, [pathname, router, isLoginPage])
+
+  if (isLoginPage) {
+    return <>{children}</>
+  }
 
   if (authenticated === null) {
     return null
   }
 
-if (!authenticated && pathname.startsWith('/admin') && !pathname.startsWith('/admin/login')) {    return null
+  if (!authenticated) {
+    return null
   }
 
   return (
