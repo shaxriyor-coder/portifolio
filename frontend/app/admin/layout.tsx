@@ -22,8 +22,8 @@ export default function AdminLayout({
       router.replace('/admin/login')
     }
 
-    if (auth && pathname === '/admin/login') {
-      router.replace('/admin')
+    if (auth && pathname.startsWith('/admin/login')) {
+            router.replace('/admin')
     }
   }, [pathname, router])
 
@@ -31,8 +31,7 @@ export default function AdminLayout({
     return null
   }
 
-  if (!authenticated && pathname.startsWith('/admin') && pathname !== '/admin/login') {
-    return null
+if (!authenticated && pathname.startsWith('/admin') && !pathname.startsWith('/admin/login')) {    return null
   }
 
   return (
