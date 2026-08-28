@@ -89,19 +89,19 @@ export default function AdminDashboard() {
     <div>
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">Bosh sahifaga xush kelibsiz</h1>
+        <h1 className="text-2xl sm:text-4xl font-bold mb-2">Bosh sahifaga xush kelibsiz</h1>
         <p className="text-muted-foreground">Portifolio kontenti va sozlamalarni boshqaring</p>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid md:grid-cols-4 gap-6 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12">
         {statCards.map((card) => {
           const Icon = card.icon
           return (
             <Link
               key={card.title}
               href={card.href}
-              className={`p-6 rounded-lg bg-gradient-to-br ${card.color} border border-border hover:border-primary transition-all hover:shadow-lg hover:shadow-purple-500/20`}
+              className={`p-4 sm:p-6 rounded-lg bg-gradient-to-br ${card.color} border border-border hover:border-primary transition-all hover:shadow-lg hover:shadow-purple-500/20`}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-3 rounded-lg bg-background">
@@ -109,7 +109,7 @@ export default function AdminDashboard() {
                 </div>
               </div>
               <p className="text-muted-foreground text-sm mb-2">{card.title}</p>
-              <p className="text-3xl font-bold">{card.value}</p>
+              <p className="text-2xl sm:text-3xl font-bold break-words">{card.value}</p>
             </Link>
           )
         })}

@@ -36,17 +36,17 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex min-h-screen flex-col bg-background md:h-screen md:flex-row">
       {/* Sidebar */}
-      <aside className="w-64 border-r border-border bg-card/50 flex flex-col">
+      <aside className="w-full border-b border-border bg-card/50 flex flex-col md:w-64 md:border-b-0 md:border-r">
         {/* Logo */}
-        <div className="p-6 border-b border-border">
-          <h1 className="text-xl font-bold">Admin Paneli</h1>
+        <div className="p-4 border-b border-border md:p-6">
+          <h1 className="text-lg font-bold md:text-xl">Admin Paneli</h1>
           <p className="text-xs text-muted-foreground mt-1">Portifoliongizni boshqaring</p>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+        <nav className="flex flex-row flex-wrap gap-2 p-3 md:flex-1 md:flex-col md:flex-nowrap md:space-y-2 md:gap-0 md:p-4 md:overflow-y-auto">
           <Link
             href="/admin"
             className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-card transition-colors"
@@ -97,8 +97,8 @@ export default function AdminLayout({
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto">
-        <div className="p-8">
+      <main className="flex-1 min-w-0 overflow-x-hidden overflow-y-auto">
+        <div className="p-4 sm:p-6 md:p-8">
           {children}
         </div>
       </main>

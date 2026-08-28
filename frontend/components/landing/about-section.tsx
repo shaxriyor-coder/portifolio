@@ -56,7 +56,7 @@ export function AboutSection() {
         {/* Left side - Content */}
         <div className="animate-slide-up space-y-8">
           <div>
-            <h2 className="text-4xl font-bold mb-6">Men haqimda</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Men haqimda</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {aboutMe?.content || "Zamonaviy veb texnologiyalari bo'yicha mutaxassis dasturchi."}
             </p>
@@ -117,21 +117,21 @@ export function AboutSection() {
         </div>
 
         {/* Right side - Stats */}
-        <div className="grid grid-cols-2 gap-6">
-          <div className="p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
-            <div className="text-3xl font-bold mb-2">{aboutMe?.yearly_experience || 0}+</div>
+        <div className="grid grid-cols-2 gap-4 sm:gap-6">
+          <div className="p-4 sm:p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
+            <div className="text-2xl sm:text-3xl font-bold mb-2">{aboutMe?.yearly_experience || 0}+</div>
             <p className="text-sm text-muted-foreground">Yillik Tajriba</p>
           </div>
-          <div className="p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
-            <div className="text-3xl font-bold mb-2">{aboutMe?.projects_completed || 0}+</div>
+          <div className="p-4 sm:p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
+            <div className="text-2xl sm:text-3xl font-bold mb-2">{aboutMe?.projects_completed || 0}+</div>
             <p className="text-sm text-muted-foreground">Tugallangan Loyihalar</p>
           </div>
-          <div className="p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
-            <div className="text-3xl font-bold mb-2">{aboutMe?.client_satisfaction || 0}%</div>
+          <div className="p-4 sm:p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
+            <div className="text-2xl sm:text-3xl font-bold mb-2">{aboutMe?.client_satisfaction || 0}%</div>
             <p className="text-sm text-muted-foreground">Mijozlar Qanaqatligi</p>
           </div>
-          <div className="p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
-            <div className="text-3xl font-bold mb-2">{techArray.length}+</div>
+          <div className="p-4 sm:p-6 rounded-lg bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-border hover:border-primary transition-colors">
+            <div className="text-2xl sm:text-3xl font-bold mb-2">{techArray.length}+</div>
             <p className="text-sm text-muted-foreground">Ishlatilgan Texnologiyalar</p>
           </div>
         </div>

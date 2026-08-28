@@ -13,12 +13,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / '.env')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-dev-only-key-change-in-production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = [h.strip() for h in os.getenv(
+    'ALLOWED_HOSTS', 'localhost,127.0.0.1,.vercel.app'
+).split(',') if h.strip()]
+
+# Origins allowed to send unsafe (POST/PUT/DELETE) requests to the Django admin
+# and other CSRF-protected views. Must include the scheme.
+CSRF_TRUSTED_ORIGINS = [o.strip() for o in os.getenv(
+    'CSRF_TRUSTED_ORIGINS', 'https://*.vercel.app'
+).split(',') if o.strip()]
 
 # Application definition
 INSTALLED_APPS = [
@@ -35,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -64,6 +73,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
+# Local dev falls back to individual DB_* settings (or SQLite via DATABASE_URL);
+# production sets DATABASE_URL to a managed PostgreSQL connection string.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -77,7 +88,11 @@ DATABASES = {
 
 database_url = os.getenv('DATABASE_URL')
 if database_url:
-    DATABASES['default'] = dj_database_url.parse(database_url, conn_max_age=600)
+    DATABASES['default'] = dj_database_url.parse(
+        database_url,
+        conn_max_age=600,
+        ssl_require=not DEBUG,
+    )
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -101,11 +116,26 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # Static files
 STATIC_URL = 'static/'
+# collectstatic writes here; Vercel serves this dir (see vercel.json / build_files.sh).
+STATIC_ROOT = BASE_DIR / 'staticfiles_build' / 'static'
+
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
+    },
+}
 
 # CORS settings
-CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000').split(',')
+CORS_ALLOWED_ORIGINS = [o.strip() for o in os.getenv(
+    'CORS_ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000'
+).split(',') if o.strip()]
 
 # REST Framework settings
 REST_FRAMEWORK = {
@@ -116,3 +146,13 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.JSONParser',
     ],
 }
+
+# Production security (behind Vercel's HTTPS proxy)
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = os.getenv('SECURE_SSL_REDIRECT', 'True').lower() == 'true'
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True

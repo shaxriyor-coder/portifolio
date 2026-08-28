@@ -42,7 +42,7 @@ export function HeroSection() {
         </p>
 
         {/* Main heading */}
-        <h1 className="mb-6 text-[clamp(2.5rem,6vw,4.8rem)] font-bold leading-tight">
+        <h1 className="mb-6 text-[clamp(2rem,6vw,4.8rem)] font-bold leading-tight">
           {profile?.name || 'Tam Stack Dasturchi'}
         </h1>
 

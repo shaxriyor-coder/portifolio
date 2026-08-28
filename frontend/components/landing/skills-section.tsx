@@ -41,7 +41,7 @@ export function SkillsSection() {
   return (
     <section id="skills" className="border-y border-border bg-card/30 px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-10 text-center text-[clamp(2rem,4vw,2.5rem)] font-bold animate-slide-up sm:mb-12">Ko'nikmalar va Texnologiyalar</h2>
+        <h2 className="mb-10 text-center text-3xl font-bold animate-slide-up sm:mb-12 sm:text-4xl">Ko'nikmalar va Texnologiyalar</h2>
 
         {loading ? (
           <div className="text-center text-muted-foreground">Ko'nikmalar yuklanmoqda...</div>

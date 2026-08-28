@@ -43,7 +43,7 @@ export function Footer() {
             <div className="flex gap-4">
               <a
                 href="https://t.me/Shaxriyor_Egamberdiyev"
-                className="rounded-lg bg-background p-2 transition-all hover:bg-primary hover:text-primary-foreground"
+                className="rounded-lg bg-background p-3 transition-all hover:bg-primary hover:text-primary-foreground"
                 aria-label="Telegram"
                 target="_blank"
                 rel="noreferrer"
@@ -52,7 +52,7 @@ export function Footer() {
               </a>
               <a
                 href="https://github.com/shaxriyor-coder"
-                className="rounded-lg bg-background p-2 transition-all hover:bg-primary hover:text-primary-foreground"
+                className="rounded-lg bg-background p-3 transition-all hover:bg-primary hover:text-primary-foreground"
                 aria-label="GitHub"
                 target="_blank"
                 rel="noreferrer"
@@ -61,7 +61,7 @@ export function Footer() {
               </a>
               <a
                 href="https://instagram.com/shaxriyore1gg"
-                className="rounded-lg bg-background p-2 transition-all hover:bg-primary hover:text-primary-foreground"
+                className="rounded-lg bg-background p-3 transition-all hover:bg-primary hover:text-primary-foreground"
                 aria-label="Instagram"
                 target="_blank"
                 rel="noreferrer"

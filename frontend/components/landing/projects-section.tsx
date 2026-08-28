@@ -39,7 +39,7 @@ export function ProjectsSection() {
 
   return (
     <section id="projects" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <h2 className="mb-10 text-center text-[clamp(2rem,4vw,2.5rem)] font-bold animate-slide-up sm:mb-12">Tanlangan Loyihalar</h2>
+      <h2 className="mb-10 text-center text-3xl font-bold animate-slide-up sm:mb-12 sm:text-4xl">Tanlangan Loyihalar</h2>
 
       {loading ? (
         <div className="text-center text-muted-foreground">Loyihalar yuklanmoqda...</div>
@@ -61,6 +61,7 @@ export function ProjectsSection() {
                   <img
                     src={project.image_url}
                     alt={project.title}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
@@ -107,13 +108,13 @@ export function ProjectsSection() {
                 </div>
 
                 {/* Links */}
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2">
                   {project.live_url && (
                     <a
                       href={project.live_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-primary transition-all hover:bg-primary hover:text-primary-foreground"
+                      className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2.5 text-primary transition-all hover:bg-primary hover:text-primary-foreground"
                     >
                       <ExternalLink size={16} />
                       Jonli
@@ -124,7 +125,7 @@ export function ProjectsSection() {
                       href={project.github_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-primary transition-all hover:bg-primary hover:text-primary-foreground"
+                      className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2.5 text-primary transition-all hover:bg-primary hover:text-primary-foreground"
                     >
                       <Github size={16} />
                       Kod
@@ -132,7 +133,7 @@ export function ProjectsSection() {
                   )}
                   <Link
                     href={`/project/${project.id}`}
-                    className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-foreground"
+                    className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2.5 text-muted-foreground transition-all hover:text-foreground"
                   >
                     Batafsil →
                   </Link>

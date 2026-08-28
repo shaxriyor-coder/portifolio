@@ -103,14 +103,14 @@ export default function SkillsAdmin() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-4xl font-bold">Skills</h1>
+      <div className="flex flex-col gap-3 mb-6 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-4xl font-bold">Skills</h1>
         <button
           onClick={() => {
             setFormData({ category: '', name: '', level: 'intermediate' })
             setShowForm(!showForm)
           }}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all"
+          className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all"
         >
           <Plus size={20} />
           Add Skill
@@ -130,7 +130,7 @@ export default function SkillsAdmin() {
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                 placeholder="e.g. Frontend, Backend, Tools"
-                className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               />
             </div>
 
@@ -141,7 +141,7 @@ export default function SkillsAdmin() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. React, TypeScript, Node.js"
-                className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               />
             </div>
 
@@ -150,7 +150,7 @@ export default function SkillsAdmin() {
               <select
                 value={formData.level}
                 onChange={(e) => setFormData({ ...formData, level: e.target.value })}
-                className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               >
                 <option value="beginner">Beginner</option>
                 <option value="intermediate">Intermediate</option>
@@ -199,7 +199,7 @@ export default function SkillsAdmin() {
                     </div>
                     <button
                       onClick={() => handleDelete(skill.id)}
-                      className="p-2 rounded-lg hover:bg-background transition-all text-muted-foreground hover:text-destructive"
+                      className="p-2.5 rounded-lg hover:bg-background transition-all text-muted-foreground hover:text-destructive"
                     >
                       <Trash2 size={20} />
                     </button>

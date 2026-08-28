@@ -53,12 +53,12 @@ export function Navigation() {
       {/* Mobile Navigation */}
       {mounted && isOpen && (
         <div className="border-t border-border bg-background md:hidden">
-          <div className="space-y-4 px-4 py-4 sm:px-6">
+          <div className="space-y-1 px-4 py-3 sm:px-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="block text-muted-foreground transition-colors hover:text-foreground"
+                className="block py-3 text-muted-foreground transition-colors hover:text-foreground"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

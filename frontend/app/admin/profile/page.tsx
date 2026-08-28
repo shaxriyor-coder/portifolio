@@ -83,10 +83,10 @@ export default function ProfileAdmin() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-8">Profil Sozlamalari</h1>
+      <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">Profil Sozlamalari</h1>
 
       <form onSubmit={handleSubmit} className="max-w-2xl">
-        <div className="bg-card border border-border rounded-lg p-8 space-y-6">
+        <div className="bg-card border border-border rounded-lg p-4 sm:p-8 space-y-6">
           {/* Name */}
           <div>
             <label className="block text-sm font-medium mb-2">Ism Familiya *</label>
@@ -95,7 +95,7 @@ export default function ProfileAdmin() {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder="Sizning ismingiz"
-              className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+              className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               required
             />
           </div>
@@ -108,7 +108,7 @@ export default function ProfileAdmin() {
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
               placeholder="Masalan: Yuqori Darajali Tam Stack Dasturchi"
-              className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+              className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               required
             />
           </div>
@@ -121,7 +121,7 @@ export default function ProfileAdmin() {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="sizning@email.com"
-              className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+              className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               required
             />
           </div>
@@ -135,7 +135,7 @@ export default function ProfileAdmin() {
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="+998 90 000-00-00"
-                className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               />
             </div>
 
@@ -146,7 +146,7 @@ export default function ProfileAdmin() {
                 value={formData.telegram}
                 onChange={(e) => setFormData({ ...formData, telegram: e.target.value })}
                 placeholder="username (@ belgisisiz)"
-                className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               />
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function ProfileAdmin() {
               value={formData.github}
               onChange={(e) => setFormData({ ...formData, github: e.target.value })}
               placeholder="https://github.com/username"
-              className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+              className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
             />
           </div>
 

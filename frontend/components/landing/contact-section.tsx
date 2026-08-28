@@ -42,7 +42,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-20 px-6 bg-card/30 border-t border-border">
       <div className="max-w-2xl mx-auto">
-        <h2 className="text-4xl font-bold mb-6 text-center animate-slide-up">Menga Murojaat Qiling</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center animate-slide-up">Menga Murojaat Qiling</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg">
           Loyihangiz haqidagi fikr bormi? Keling, hamkorlik qilib birgalikda ajoyib narsa yaratamiz.
         </p>

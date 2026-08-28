@@ -3,3 +3,8 @@ dist/
 .env
 venv/
 __pycache__/
+*.pyc
+db.sqlite3
+staticfiles_build/
+staticfiles/
+.vercel/

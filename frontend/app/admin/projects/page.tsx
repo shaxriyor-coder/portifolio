@@ -138,8 +138,8 @@ export default function ProjectsAdmin() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-4xl font-bold">Projects</h1>
+      <div className="flex flex-col gap-3 mb-6 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-4xl font-bold">Projects</h1>
         <button
           onClick={() => {
             setEditingId(null)
@@ -155,7 +155,7 @@ export default function ProjectsAdmin() {
             })
             setShowForm(!showForm)
           }}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all"
+          className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all"
         >
           <Plus size={20} />
           Yangi loyiha
@@ -173,7 +173,7 @@ export default function ProjectsAdmin() {
               <select
                 value={formData.project_type}
                 onChange={(e) => setFormData({ ...formData, project_type: e.target.value as 'web' | 'bot' })}
-                className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               >
                 <option value="web">Veb loyihasi</option>
                 <option value="bot">Telegram bot</option>
@@ -187,7 +187,7 @@ export default function ProjectsAdmin() {
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 placeholder="Loyiha sarlavhasi"
-                className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               />
             </div>
 
@@ -198,7 +198,7 @@ export default function ProjectsAdmin() {
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 placeholder="Loyiha haqida batafsil ma'lumot"
                 rows={4}
-                className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all resize-none"
+                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all resize-none"
               />
             </div>
 
@@ -210,7 +210,7 @@ export default function ProjectsAdmin() {
                   value={formData.tech_stack}
                   onChange={(e) => setFormData({ ...formData, tech_stack: e.target.value })}
                   placeholder="React, Next.js, TypeScript"
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                 />
               </div>
 
@@ -222,7 +222,7 @@ export default function ProjectsAdmin() {
                     value={formData.bot_username}
                     onChange={(e) => setFormData({ ...formData, bot_username: e.target.value })}
                     placeholder="@mybot"
-                    className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                    className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                   />
                 </div>
               ) : (
@@ -233,7 +233,7 @@ export default function ProjectsAdmin() {
                     value={formData.image_url}
                     onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
                     placeholder="https://example.com/image.jpg"
-                    className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                    className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                   />
                 </div>
               )}
@@ -247,7 +247,7 @@ export default function ProjectsAdmin() {
                   value={formData.github_url}
                   onChange={(e) => setFormData({ ...formData, github_url: e.target.value })}
                   placeholder="https://github.com/..."
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                 />
               </div>
 
@@ -258,7 +258,7 @@ export default function ProjectsAdmin() {
                   value={formData.live_url}
                   onChange={(e) => setFormData({ ...formData, live_url: e.target.value })}
                   placeholder="https://example.com"
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                 />
               </div>
             </div>
@@ -295,11 +295,11 @@ export default function ProjectsAdmin() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-card border border-border rounded-lg p-6 flex justify-between items-start hover:border-primary transition-all"
+              className="bg-card border border-border rounded-lg p-4 sm:p-6 flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-start hover:border-primary transition-all"
             >
-              <div className="flex-1">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-3">{project.description}</p>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 break-words">{project.title}</h3>
+                <p className="text-muted-foreground mb-3 break-words">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech_stack.split(',').map((tech) => (
                     <span key={tech} className="px-2 py-1 text-xs rounded bg-background">
@@ -308,16 +308,16 @@ export default function ProjectsAdmin() {
                   ))}
                 </div>
               </div>
-              <div className="flex gap-2 ml-4">
+              <div className="flex gap-2 sm:ml-4">
                 <button
                   onClick={() => handleEdit(project)}
-                  className="p-2 rounded-lg hover:bg-background transition-all text-muted-foreground hover:text-foreground"
+                  className="p-2.5 rounded-lg hover:bg-background transition-all text-muted-foreground hover:text-foreground"
                 >
                   <Edit2 size={20} />
                 </button>
                 <button
                   onClick={() => handleDelete(project.id)}
-                  className="p-2 rounded-lg hover:bg-background transition-all text-muted-foreground hover:text-destructive"
+                  className="p-2.5 rounded-lg hover:bg-background transition-all text-muted-foreground hover:text-destructive"
                 >
                   <Trash2 size={20} />
                 </button>

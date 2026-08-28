@@ -116,10 +116,10 @@ export default function AboutAdmin() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-8">Men Haqimda</h1>
+      <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">Men Haqimda</h1>
 
       <form onSubmit={handleSubmit} className="max-w-4xl">
-        <div className="bg-card border border-border rounded-lg p-8 space-y-6">
+        <div className="bg-card border border-border rounded-lg p-4 sm:p-8 space-y-6">
           {/* About Content */}
           <div>
             <label className="block text-sm font-medium mb-2">Men Haqimda Mazmuni *</label>
@@ -144,7 +144,7 @@ export default function AboutAdmin() {
                   value={aboutMe.email || ''}
                   onChange={(e) => setAboutMe({ ...aboutMe, email: e.target.value })}
                   placeholder="siz@email.com"
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                 />
               </div>
 
@@ -155,7 +155,7 @@ export default function AboutAdmin() {
                   value={aboutMe.phone_number || ''}
                   onChange={(e) => setAboutMe({ ...aboutMe, phone_number: e.target.value })}
                   placeholder="+998 90 000-00-00"
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                 />
               </div>
 
@@ -166,7 +166,7 @@ export default function AboutAdmin() {
                   value={aboutMe.telegram || ''}
                   onChange={(e) => setAboutMe({ ...aboutMe, telegram: e.target.value })}
                   placeholder="@sizningusername"
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                 />
               </div>
             </div>
@@ -184,7 +184,7 @@ export default function AboutAdmin() {
                   value={aboutMe.yearly_experience || 0}
                   onChange={(e) => setAboutMe({ ...aboutMe, yearly_experience: parseInt(e.target.value) || 0 })}
                   placeholder="5"
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                 />
               </div>
 
@@ -196,7 +196,7 @@ export default function AboutAdmin() {
                   value={aboutMe.projects_completed || 0}
                   onChange={(e) => setAboutMe({ ...aboutMe, projects_completed: parseInt(e.target.value) || 0 })}
                   placeholder="25"
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                 />
               </div>
 
@@ -209,7 +209,7 @@ export default function AboutAdmin() {
                   value={aboutMe.client_satisfaction || 0}
                   onChange={(e) => setAboutMe({ ...aboutMe, client_satisfaction: parseInt(e.target.value) || 0 })}
                   placeholder="95"
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
                 />
               </div>
             </div>
@@ -225,7 +225,7 @@ export default function AboutAdmin() {
                 onChange={(e) => setAboutMe({ ...aboutMe, technologies: e.target.value })}
                 placeholder="React, Next.js, TypeScript, Node.js, PostgreSQL, Docker"
                 rows={3}
-                className="w-full px-4 py-2 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all resize-none"
+                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all resize-none"
               />
             </div>
           </div>

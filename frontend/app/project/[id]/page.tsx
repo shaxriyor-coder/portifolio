@@ -98,22 +98,22 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
         {/* Project Content */}
         <div className="max-w-6xl mx-auto px-6 pb-20">
           {/* Header */}
-          <h1 className="text-5xl font-bold mb-4">{project.title}</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 break-words">{project.title}</h1>
 
           {/* Project Image */}
           {project.image_url && (
-            <div className="w-full h-96 rounded-lg overflow-hidden mb-12 bg-gradient-to-br from-purple-600/20 to-blue-600/20">
-              <img src={project.image_url} alt={project.title} className="w-full h-full object-cover" />
+            <div className="w-full h-56 sm:h-80 md:h-96 rounded-lg overflow-hidden mb-8 md:mb-12 bg-gradient-to-br from-purple-600/20 to-blue-600/20">
+              <img src={project.image_url} alt={project.title} loading="lazy" className="w-full h-full object-cover" />
             </div>
           )}
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="md:col-span-2">
-              <h2 className="text-2xl font-bold mb-4">Overview</h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">{project.description}</p>
+              <h2 className="text-xl sm:text-2xl font-bold mb-4">Overview</h2>
+              <p className="text-base sm:text-lg text-muted-foreground mb-8 leading-relaxed">{project.description}</p>
 
-              <h2 className="text-2xl font-bold mb-4">Tech Stack</h2>
+              <h2 className="text-xl sm:text-2xl font-bold mb-4">Tech Stack</h2>
               <div className="flex flex-wrap gap-3 mb-8">
                 {project.tech_stack.split(',').map((tech) => (
                   <span
