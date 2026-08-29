@@ -9,7 +9,7 @@ interface Project {
   id: number
   title: string
   description: string
-  project_type: 'web' | 'bot'
+  project_type: 'web' | 'bot' | 'mobile'
   image_url?: string
   bot_username?: string
   tech_stack: string
@@ -56,7 +56,7 @@ export function ProjectsSection() {
               }}
             >
               {/* Project Image or Bot Info */}
-              {project.project_type === 'web' && project.image_url ? (
+              {(project.project_type === 'web' || project.project_type === 'mobile') && project.image_url ? (
                 <div className="w-full h-48 bg-gradient-to-br from-purple-600/20 to-blue-600/20 overflow-hidden">
                   <img
                     src={project.image_url}
@@ -77,6 +77,15 @@ export function ProjectsSection() {
                         {project.bot_username}
                       </div>
                     )}
+                  </div>
+                </div>
+              ) : project.project_type === 'mobile' ? (
+                <div className="w-full h-48 bg-gradient-to-br from-green-600/20 to-emerald-600/20 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-4xl mb-2">📱</div>
+                    <div className="text-sm font-medium text-muted-foreground">
+                      Mobile App
+                    </div>
                   </div>
                 </div>
               ) : (

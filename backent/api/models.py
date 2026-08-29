@@ -41,6 +41,7 @@ class Project(models.Model):
     PROJECT_TYPES = [
         ('web', 'Web project'),
         ('bot', 'Telegram bot'),
+        ('mobile', 'Mobile app'),
     ]
 
     title = models.CharField(max_length=200, verbose_name="Title")

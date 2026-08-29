@@ -9,7 +9,7 @@ interface Project {
   id: number
   title: string
   description: string
-  project_type: 'web' | 'bot'
+  project_type: 'web' | 'bot' | 'mobile'
   tech_stack: string
   github_url?: string
   live_url?: string
@@ -20,7 +20,7 @@ interface Project {
 interface FormData {
   title: string
   description: string
-  project_type: 'web' | 'bot'
+  project_type: 'web' | 'bot' | 'mobile'
   tech_stack: string
   github_url: string
   live_url: string
@@ -172,11 +172,12 @@ export default function ProjectsAdmin() {
               <label className="block text-sm font-medium mb-2">Project type *</label>
               <select
                 value={formData.project_type}
-                onChange={(e) => setFormData({ ...formData, project_type: e.target.value as 'web' | 'bot' })}
+                onChange={(e) => setFormData({ ...formData, project_type: e.target.value as 'web' | 'bot' | 'mobile' })}
                 className="w-full px-4 py-2.5 rounded-lg bg-background border border-border focus:border-primary outline-none transition-all"
               >
                 <option value="web">Web project</option>
                 <option value="bot">Telegram bot</option>
+                <option value="mobile">Mobile app</option>
               </select>
             </div>
 
