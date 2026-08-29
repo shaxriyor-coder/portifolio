@@ -1,6 +1,6 @@
 'use client'
 
-import { Github, Instagram, Send } from 'lucide-react'
+import { Github, Instagram, Linkedin, Send } from 'lucide-react'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -58,6 +58,15 @@ export function Footer() {
                 rel="noreferrer"
               >
                 <Github size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/shaxriyor-egamberdiyev-57595240a/"
+                className="rounded-lg bg-background p-3 transition-all hover:bg-primary hover:text-primary-foreground"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Linkedin size={20} />
               </a>
               <a
                 href="https://instagram.com/shaxriyore1gg"

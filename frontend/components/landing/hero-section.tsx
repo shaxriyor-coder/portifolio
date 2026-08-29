@@ -81,6 +81,14 @@ export function HeroSection() {
             </a>
           )}
           <a
+            href="https://www.linkedin.com/in/shaxriyor-egamberdiyev-57595240a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg bg-card p-3 transition-all duration-200 hover:bg-primary hover:text-primary-foreground"
+          >
+            <Linkedin size={24} />
+          </a>
+          <a
             href="#contact"
             className="rounded-lg bg-card p-3 transition-all duration-200 hover:bg-primary hover:text-primary-foreground"
           >
