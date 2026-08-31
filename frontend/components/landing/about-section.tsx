@@ -1,7 +1,4 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import { apiUrl } from '@/lib/api-client'
+import { fetchApi } from '@/lib/api-client'
 
 interface AboutMe {
   id?: number
@@ -17,34 +14,9 @@ interface AboutMe {
   updated_at?: string
 }
 
-export function AboutSection() {
-  const [aboutMe, setAboutMe] = useState<AboutMe | null>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    async function fetchAboutMe() {
-      try {
-        const res = await fetch(apiUrl('/api/about-me'))
-        const data = await res.json()
-        const item = Array.isArray(data) ? data[0] : data
-        setAboutMe(item)
-      } catch (error) {
-        console.error('Failed to fetch About Me:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchAboutMe()
-  }, [])
-
-  if (loading) {
-    return (
-      <section id="about" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-        <div className="text-center text-muted-foreground">Loading...</div>
-      </section>
-    )
-  }
+export async function AboutSection() {
+  const data = await fetchApi<AboutMe | AboutMe[] | null>('/api/about-me', null)
+  const aboutMe = Array.isArray(data) ? data[0] ?? null : data
 
   const techArray = aboutMe?.technologies
     ? aboutMe.technologies.split(',').map(t => t.trim()).filter(t => t)
@@ -85,10 +57,10 @@ export function AboutSection() {
               {aboutMe?.telegram && (
                 <div className="flex items-center gap-3">
                   <span className="text-primary font-medium">Telegram:</span>
-                  <a 
-                    href={`https://t.me/${aboutMe.telegram.replace('@', '')}`} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href={`https://t.me/${aboutMe.telegram.replace('@', '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {aboutMe.telegram}

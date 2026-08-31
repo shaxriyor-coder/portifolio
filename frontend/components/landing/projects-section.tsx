@@ -1,9 +1,6 @@
-'use client'
-
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ExternalLink, Github } from 'lucide-react'
-import { apiUrl } from '@/lib/api-client'
+import { fetchApi } from '@/lib/api-client'
 
 interface Project {
   id: number
@@ -17,33 +14,15 @@ interface Project {
   live_url?: string
 }
 
-export function ProjectsSection() {
-  const [projects, setProjects] = useState<Project[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    async function fetchProjects() {
-      try {
-        const res = await fetch(apiUrl('/api/projects'))
-        const data = await res.json()
-        setProjects(data)
-      } catch (error) {
-        console.error('Failed to fetch projects:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchProjects()
-  }, [])
+export async function ProjectsSection() {
+  const projectsData = await fetchApi<Project[]>('/api/projects', [])
+  const projects = Array.isArray(projectsData) ? projectsData : []
 
   return (
     <section id="projects" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
       <h2 className="mb-10 text-center text-3xl font-bold animate-slide-up sm:mb-12 sm:text-4xl">Featured Projects</h2>
 
-      {loading ? (
-        <div className="text-center text-muted-foreground">Loading projects...</div>
-      ) : projects.length === 0 ? (
+      {projects.length === 0 ? (
         <div className="py-12 text-center text-muted-foreground">No projects added yet</div>
       ) : (
         <div className="grid gap-6 md:grid-cols-2">

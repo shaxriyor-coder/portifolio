@@ -1,11 +1,8 @@
-'use client'
-
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Navigation } from '@/components/landing/navigation'
 import { Footer } from '@/components/landing/footer'
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
-import { apiUrl } from '@/lib/api-client'
+import { fetchApi } from '@/lib/api-client'
 
 interface Project {
   id: number
@@ -17,58 +14,17 @@ interface Project {
   live_url?: string
 }
 
-export default function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
-  const [project, setProject] = useState<Project | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
-  const [id, setId] = useState<string | null>(null)
+export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const project = await fetchApi<Project | null>(`/api/projects/${id}`, null)
 
-  useEffect(() => {
-    async function getParams() {
-      const resolvedParams = await params
-      setId(resolvedParams.id)
-    }
-    getParams()
-  }, [params])
-
-  useEffect(() => {
-    if (!id) return
-
-    async function fetchProject() {
-      try {
-        const res = await fetch(apiUrl(`/api/projects/${id}`))
-        if (!res.ok) {
-          setError('Project not found')
-          setLoading(false)
-          return
-        }
-        const data = await res.json()
-        setProject(data)
-      } catch (err) {
-        setError('Failed to load project')
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchProject()
-  }, [id])
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-muted-foreground">Loading...</div>
-      </div>
-    )
-  }
-
-  if (error || !project) {
+  if (!project || !project.id) {
     return (
       <div className="min-h-screen flex flex-col">
         <Navigation />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <p className="text-2xl font-bold mb-4">{error || 'Project not found'}</p>
+            <p className="text-2xl font-bold mb-4">Project not found</p>
             <Link href="/" className="text-primary hover:text-primary-foreground hover:bg-primary px-4 py-2 rounded-lg transition-all">
               Go back home
             </Link>

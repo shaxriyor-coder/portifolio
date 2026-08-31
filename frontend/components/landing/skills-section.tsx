@@ -1,7 +1,4 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import { apiUrl } from '@/lib/api-client'
+import { fetchApi } from '@/lib/api-client'
 
 interface Skill {
   id: number
@@ -10,27 +7,10 @@ interface Skill {
   level: string
 }
 
-export function SkillsSection() {
-  const [skills, setSkills] = useState<Skill[]>([])
-  const [loading, setLoading] = useState(true)
+export async function SkillsSection() {
+  const skills = await fetchApi<Skill[]>('/api/skills', [])
 
-  useEffect(() => {
-    async function fetchSkills() {
-      try {
-        const res = await fetch(apiUrl('/api/skills'))
-        const data = await res.json()
-        setSkills(data)
-      } catch (error) {
-        console.error('Failed to fetch skills:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchSkills()
-  }, [])
-
-  const groupedSkills = skills.reduce((acc, skill) => {
+  const groupedSkills = (Array.isArray(skills) ? skills : []).reduce((acc, skill) => {
     if (!acc[skill.category]) {
       acc[skill.category] = []
     }
@@ -43,9 +23,7 @@ export function SkillsSection() {
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-10 text-center text-3xl font-bold animate-slide-up sm:mb-12 sm:text-4xl">Skills &amp; Technologies</h2>
 
-        {loading ? (
-          <div className="text-center text-muted-foreground">Loading skills...</div>
-        ) : Object.keys(groupedSkills).length === 0 ? (
+        {Object.keys(groupedSkills).length === 0 ? (
           <div className="text-center text-muted-foreground">No skills added yet</div>
         ) : (
           <div className="space-y-10 sm:space-y-12">

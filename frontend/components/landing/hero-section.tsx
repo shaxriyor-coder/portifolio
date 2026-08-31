@@ -1,9 +1,6 @@
-'use client'
-
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
-import { apiUrl } from '@/lib/api-client'
+import { fetchApi } from '@/lib/api-client'
 
 interface Profile {
   name?: string
@@ -12,22 +9,8 @@ interface Profile {
   github?: string
 }
 
-export function HeroSection() {
-  const [profile, setProfile] = useState<Profile | null>(null)
-
-  useEffect(() => {
-    async function fetchProfile() {
-      try {
-        const res = await fetch(apiUrl('/api/profile'))
-        const data = await res.json()
-        setProfile(data)
-      } catch (error) {
-        console.error('Failed to fetch profile:', error)
-      }
-    }
-
-    fetchProfile()
-  }, [])
+export async function HeroSection() {
+  const profile = await fetchApi<Profile | null>('/api/profile', null)
 
   return (
     <section className="relative flex min-h-[calc(100svh-4rem)] items-center justify-center overflow-hidden px-4 pb-16 pt-24 sm:px-6">
